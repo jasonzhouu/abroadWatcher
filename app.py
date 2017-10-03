@@ -22,7 +22,7 @@ def index():
     template_list = ''
     for video in video_list:
         template_list += '<ul><li><a href="/video/'
-        template_list += urllib.parse.quote(video[7:-4])
+        template_list += urllib.parse.quote(video[7:])
         template_list += '">'
         template_list += video[7:-4]
         template_list += '</a></li></ul>'
