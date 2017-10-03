@@ -4,21 +4,19 @@ from recursionFile import scanpath
 
 app = flask.Flask(__name__)
 
-# TODO
-# 提供静态文件
-# url_for('static', filename='style.css')
-
 
 @app.route('/')
 def index():
-    return flask.render_template('index.html')
+    video_list = scanpath('static', 'mp4')
+    print(video_list)
+    return flask.render_template('index.html', video_list=video_list)
 
 
 @app.route('/videoList')
 def youtube():
-    video_list = scanpath('video', 'mkv')
+    video_list = scanpath('static', 'mkv')
     return flask.jsonify(video_list)
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug='true')
