@@ -35,7 +35,3 @@ def index():
 def play_video(video_name):
     return flask.render_template('playVideo.html', video_name=video_name)
 
-
-if __name__ == '__main__':
-    app.run(debug='true')
-    # app.run(host='0.0.0.0')
