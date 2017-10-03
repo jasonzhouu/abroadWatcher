@@ -1,19 +1,23 @@
-from flask import Flask
-from flask import jsonify
+import flask
+
 from recursionFile import scanpath
 
-app = Flask(__name__)
+app = flask.Flask(__name__)
+
+# TODO
+# 提供静态文件
+# url_for('static', filename='style.css')
 
 
 @app.route('/')
 def index():
-    return 'hello'
+    return flask.render_template('index.html')
 
 
 @app.route('/videoList')
 def youtube():
     video_list = scanpath('video', 'mkv')
-    return jsonify(video_list)
+    return flask.jsonify(video_list)
 
 
 if __name__ == '__main__':
