@@ -31,9 +31,7 @@ def index():
     # return flask.render_template('index.html', template_list=template_list)
 
 
-@app.route('/video/<video_name>')
+@app.route('/video/<path:video_name>')
 def play_video(video_name):
-    video_name = urllib.parse.quote(video_name)
-    print('播放  ' + video_name)
     return flask.render_template('playVideo.html', video_name=video_name)
 
